@@ -11,6 +11,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const port = process.env.API_PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('api works');
+});
+
 app.listen(port, () => {
   console.log(`server listening at port: ${port}`);
 });

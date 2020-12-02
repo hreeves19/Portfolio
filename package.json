@@ -4,8 +4,11 @@
   "description": "Court Reeves portfolio",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "server": "nodemon .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "portfolio",
