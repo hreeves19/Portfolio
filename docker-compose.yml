@@ -8,15 +8,17 @@ services:
   server:
     build: .
     volumes:
-      - ./:/usr/src/app
+      - ./:/app
     ports:
       - 3000:3000
     links:
       - mongo-db
+    container_name: portfolio-server
   client:
     build: client
     volumes:
       - ./client:/usr/src/app
     ports:
       - 4200:4200
+    container_name: portfolio-client
 

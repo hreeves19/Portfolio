@@ -16,6 +16,14 @@ app.get('/', (req, res) => {
   res.send('api works');
 });
 
+app.get('/test', (req, res) => {
+  res.json({api: 'Works pretty well!!'});
+});
+
+app.get('/test/bruh', (req, res) => {
+  res.json({api: 'Works pretty well bruh!!'});
+});
+
 app.listen(port, () => {
   console.log(`server listening at port: ${port}`);
 });
