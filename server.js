@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const express = require('express');
 require('dotenv').config();
 const app = express();
+require('./db');
 
 // Middleware code
 app.use(helmet());
