@@ -13,16 +13,8 @@ app.use(bodyParser.json());
 
 const port = process.env.API_PORT || 3000;
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('api works');
-});
-
-app.get('/test', (req, res) => {
-  res.json({api: 'Works pretty well!!'});
-});
-
-app.get('/test/bruh', (req, res) => {
-  res.json({api: 'Works pretty well bruh!!'});
 });
 
 app.listen(port, () => {
