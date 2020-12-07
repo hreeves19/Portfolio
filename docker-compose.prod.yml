@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - '27017:27017'
+  server:
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    links:
+      - mongo-db
+    container_name: portfolio-server
+  client:
+    hostname: localhost
+    build: client
+    volumes:
+      - ./client:/usr/src/app
+    ports:
+      - 8181:80
+    container_name: portfolio-client
+
