@@ -15,6 +15,6 @@ COPY . .
 RUN npm run build --prod
 
 FROM nginx:latest
-COPY --from=builder /usr/src/app/dist/client/ /usr/share/nginx/html
+COPY --from=build-step /usr/src/app/dist/client/ /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80 443
