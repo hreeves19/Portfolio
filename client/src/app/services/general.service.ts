@@ -13,6 +13,6 @@ export class GeneralService {
   ) { }
 
   testApi(): Observable<any> {
-    return this.http.get(`${environment.server}/test`);
+    return this.http.get(`${environment.server}/api`);
   }
 }
