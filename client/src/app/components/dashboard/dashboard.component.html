@@ -1,7 +1,7 @@
 <!--dash.component.html-->
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="250px">
     <!--Mini Cards-->
     <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard?.cols"
       [rowspan]="( cardLayout | async )?.miniCard?.rows">
@@ -32,8 +32,8 @@
     </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table?.cols" [rowspan]="( cardLayout | async )?.table?.rows">
-      <app-card title="Card 9">
-        <div>Table Content Here</div>
+      <app-card title="Latest Orders">
+        <app-orders-table></app-orders-table>
       </app-card>
     </mat-grid-tile>
   </mat-grid-list>
