@@ -19,7 +19,7 @@
       <app-card title="Product Sales">
         <app-product-sales-chart></app-product-sales-chart>
       </app-card>
-    </mat-grid-tile> -->
+    </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols" [rowspan]="( cardLayout | async )?.chart?.rows">
       <app-card title="Sales by Traffic Source">
         <app-sales-traffic-chart></app-sales-traffic-chart>
