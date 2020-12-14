@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CardModule } from '../card/card.module';
+import { StoreSessionsChartModule } from '../../charts/store-sessions-chart/store-sessions-chart.module';
+import { SalesTrafficChartModule } from '../../charts/sales-traffic-chart/sales-traffic-chart.module';
+import { ProductSalesChartModule } from '../../charts/product-sales-chart/product-sales-chart.module';
+import { AnnualSalesChartModule } from 'src/app/charts/annual-sales-chart/annual-sales-chart.module';
 
 
 @NgModule({
@@ -11,7 +15,11 @@ import { CardModule } from '../card/card.module';
   imports: [
     CommonModule,
     MatGridListModule,
-    CardModule
+    CardModule,
+    StoreSessionsChartModule,
+    SalesTrafficChartModule,
+    ProductSalesChartModule,
+    AnnualSalesChartModule
   ]
 })
 export class DashboardModule { }
