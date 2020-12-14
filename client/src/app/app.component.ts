@@ -8,7 +8,7 @@ import { take } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'Courtland Reeves';
-
+  isDarkTheme: boolean = true;
   constructor(
     private generalService: GeneralService
   ) { }
