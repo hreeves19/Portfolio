@@ -8,22 +8,23 @@ require('dotenv').config();
 const app = express();
 require('./db');
 const emailRouter = require('./routes/email');
+const rateLimiterRedisMiddleware = require('./middleware/rateLimiterRedis');
 
-// Middleware code
+// Loading middleware
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
+app.use(rateLimiterRedisMiddleware);
+
+// Adding routers
 app.use('/api/email', emailRouter);
+
 
 const port = process.env.API_PORT || 3000;
 
 app.get('/api', (req, res) => {
   res.json({api: 'api works'});
 });
-function errorHandler (err, req, res, next) {
-  res.status(500)
-  res.render('error', { error: err })
-}
 
 app.use((err, req, res, next) => {
   console.error(err);
