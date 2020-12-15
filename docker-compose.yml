@@ -13,7 +13,13 @@ services:
       - 3000:3000
     links:
       - mongo-db
+      - redis
     container_name: portfolio-server
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
+    container_name: portfolio-cache
   client:
     build: client
     volumes:
