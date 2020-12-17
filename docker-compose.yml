@@ -3,8 +3,6 @@ version: '3.4'
 services:
   mongo-db:
     image: mongo
-    volumes:
-      - ./db:/data/db
     ports:
       - '27017:27017'
   server:

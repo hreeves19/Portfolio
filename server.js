@@ -8,12 +8,14 @@ require('dotenv').config();
 const app = express();
 require('./db');
 const emailRouter = require('./routes/email');
+const personRouter = require('./routes/person');
 
 // Middleware code
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/email', emailRouter);
+app.use('/api/person', personRouter);
 
 const port = process.env.API_PORT || 3000;
 
