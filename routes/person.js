@@ -40,4 +40,18 @@ router.put('/', (req, res, next) => {
     });
 });
 
+router.delete('/', (req, res, next) => {
+    if (!req.body.id) {
+        throw new Error('Cannot find person without an id');
+    }
+
+    Person.deleteOne({_id: req.body.id}, (err, result) => {
+        if (err) {
+            next(err);
+        } else {
+            res.json({msg: 'Row deleted successfully!'});
+        }
+    });
+});
+
 module.exports = router;
