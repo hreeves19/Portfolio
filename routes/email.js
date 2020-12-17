@@ -7,12 +7,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/send', (req, res, next) => {
-    if (!req.query.to) {
-        throw new Error('To is a required parameter');
-    }
-    const toAddresses = req.query.to.split(',');
-    SES.sendMail(toAddresses).then(result => {
-        console.log(result);
+    SES.sendMail().then(result => {
         res.send({msg: 'Email was sent successfully!'});
     }).catch(error => next(error));
 });

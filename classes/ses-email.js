@@ -9,7 +9,7 @@ const ses = {
         region: process.env.AWS_SES_REGION
     },
 
-    sendMail: async (to) => {
+    sendMail: async (to = []) => {
         // Convert to array
         if (!Array.isArray(to)) {
             to = to.split(',');
@@ -18,7 +18,7 @@ const ses = {
         const params = {
             Source: process.env.MAILER_EMAIL,
             Destination: {
-                ToAddresses: to
+                ToAddresses: to.length === 0 ? [process.env.MAILER_EMAIL] : to
             },
             ReplyToAddresses: [
                 process.env.MAILER_EMAIL
