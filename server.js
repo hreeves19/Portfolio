@@ -3,8 +3,9 @@ const cors = require('cors');
 const helmet = require("helmet");
 const express = require('express');
 const path = require('path');
-const PUBLIC_DIR = path.resolve(__dirname, './client/dist/client');
+const passport = require('passport');
 require('dotenv').config();
+require('./auth/auth');
 const app = express();
 require('./db');
 
@@ -12,6 +13,13 @@ require('./db');
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
+
+const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
+
+// Other routes
+app.use('/api/auth', authRouter);
+app.use('/api/user', passport.authenticate('jwt', {session: false}), userRouter);
 
 const port = process.env.API_PORT || 3000;
 
