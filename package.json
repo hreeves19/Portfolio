@@ -31,7 +31,8 @@
     "mongoose": "^5.11.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "plaid": "^8.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
