@@ -18,6 +18,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeModule } from './pages/home/home.module';
+import { LoginModule } from './pages/login/login.module';
+import { SignupModule } from './pages/signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { HomeModule } from './pages/home/home.module';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HomeModule
+    HomeModule,
+    LoginModule,
+    SignupModule
   ],
   providers: [GeneralService],
   bootstrap: [AppComponent]
