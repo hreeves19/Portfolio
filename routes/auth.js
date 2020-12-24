@@ -3,10 +3,11 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const auth = require('../auth/auth');
 const router = express.Router();
+const _ = require('underscore');
 
 // Sign up
 router.post('/signup', passport.authenticate('signup', {session: false}), async (req, res, next) => {
-    res.json({message: 'Signup successful', user: req.user});
+    res.json({message: 'Signup successful'});
 });
 
 // Log in
