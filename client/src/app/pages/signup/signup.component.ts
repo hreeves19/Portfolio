@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { passwordStrengthValidator } from 'src/app/shared/validators/passwordStrength.validator';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-signup',
@@ -8,9 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   signupForm = new FormGroup({
-    email: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required]),
-    retypePassword: new FormControl(null, [Validators.required])
+    email: new FormControl(null, [Validators.required, RxwebValidators.email()]),
+    password: new FormControl(null, [Validators.required, passwordStrengthValidator]),
+    retypePassword: new FormControl(null, [Validators.required, RxwebValidators.compare({fieldName: 'password'})])
   });
   hide = true;
 
@@ -24,6 +26,7 @@ export class SignupComponent implements OnInit {
     if (!this.signupForm.valid) {
       return;
     }
+    alert('valid');
   }
 
 }
