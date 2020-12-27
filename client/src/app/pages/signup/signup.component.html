@@ -15,7 +15,7 @@
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Password</mat-label>
         <input matInput placeholder="Placeholder" formControlName="password" [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matPrefix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        <button type="button" mat-icon-button matPrefix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -25,7 +25,7 @@
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Retype Password</mat-label>
         <input matInput placeholder="Placeholder" formControlName="retypePassword" [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matPrefix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        <button type="button" mat-icon-button matPrefix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>

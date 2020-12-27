@@ -13,7 +13,7 @@ export class AuthenticateService {
   ) { }
 
   /**
-   * Signup new service
+   * Signup new service.
    *
    * @param {*} user
    * @returns {Observable<any>}
@@ -21,5 +21,16 @@ export class AuthenticateService {
    */
   signup(user: any): Observable<any> {
     return this.http.post(`${environment.server}/api/auth/signup`, user);
+  }
+
+  /**
+   * Logs a user in.
+   *
+   * @param {*} user
+   * @returns {Observable<any>}
+   * @memberof AuthenticateService
+   */
+  login(user: any): Observable<any> {
+    return this.http.post(`${environment.server}/api/auth/login`, user);
   }
 }

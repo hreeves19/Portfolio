@@ -5,6 +5,7 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 import { take } from 'rxjs/operators';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(
-    private authService: AuthenticateService
+    private authService: AuthenticateService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class SignupComponent implements OnInit {
       (result) => {
         console.log(result);
         this.isLoading = false;
+        this.router.navigate(['login']);
       },
       (error) => {
         console.log(error);
