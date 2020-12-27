@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneralService } from './services/general.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
 import { NavComponent } from './nav/nav.component';
@@ -21,6 +21,7 @@ import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';
 import { SignupModule } from './pages/signup/signup.module';
 import { AuthenticateService } from './services/authenticate.service';
+import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,11 @@ import { AuthenticateService } from './services/authenticate.service';
     LoginModule,
     SignupModule
   ],
-  providers: [GeneralService, AuthenticateService],
+  providers: [GeneralService, AuthenticateService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

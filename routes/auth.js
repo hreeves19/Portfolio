@@ -13,6 +13,7 @@ router.post('/signup', passport.authenticate('signup', {session: false}), async 
 // Log in
 router.post('/login', async (req, res, next) => {
     passport.authenticate('login', async (err, user, info) => {
+        const expiresInSecs = 60;
         try {
             if (err || !user) {
                 const error = new Error('An error occured!');
@@ -23,8 +24,8 @@ router.post('/login', async (req, res, next) => {
                 if (error) return next(error);
 
                 const body = {_id: user._id, email: user.email};
-                const token = jwt.sign({user: body}, process.env.SECRET_TOKEN);
-                return res.json({token});
+                const token = jwt.sign({user: body}, process.env.SECRET_TOKEN, {expiresIn: expiresInSecs});
+                return res.json({token, expiresIn: expiresInSecs});
             });
         } catch (error) {
             return next(error);

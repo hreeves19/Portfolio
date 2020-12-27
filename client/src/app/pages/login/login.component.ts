@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 import { take } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   hide: boolean = true;
 
   constructor(
-    private authService: AuthenticateService
+    private authService: AuthenticateService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,14 @@ export class LoginComponent implements OnInit {
       (result) => {
         console.log(result);
         this.isLoading = false;
+        this.userService.getProfile().pipe(take(1)).subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            console.log(err)
+          }
+        );
       },
       (error) => {
         console.log(error);
