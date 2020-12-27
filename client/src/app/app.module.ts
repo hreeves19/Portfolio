@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';
 import { SignupModule } from './pages/signup/signup.module';
+import { AuthenticateService } from './services/authenticate.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { SignupModule } from './pages/signup/signup.module';
     LoginModule,
     SignupModule
   ],
-  providers: [GeneralService],
+  providers: [GeneralService, AuthenticateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

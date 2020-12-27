@@ -23,6 +23,7 @@
     "@angular/router": "~11.0.0",
     "@rxweb/reactive-form-validators": "^2.1.2",
     "chart.js": "^2.9.4",
+    "moment": "^2.29.1",
     "ng2-charts": "^2.4.2",
     "ngx-plaid-link": "^1.0.3",
     "rxjs": "~6.6.0",

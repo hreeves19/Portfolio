@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [SignupComponent],
@@ -20,7 +21,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    RxReactiveFormsModule
+    RxReactiveFormsModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SignupModule { }

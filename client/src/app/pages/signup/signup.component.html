@@ -1,3 +1,4 @@
+<!-- <mat-progress-bar mode="query"></mat-progress-bar> -->
 <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit()"
   style="display: flex; justify-content: center; align-items: center; width: 100%; max-height: 100%; margin-top: 1rem;">
   <span style="flex-grow: 3;"></span>
@@ -33,7 +34,7 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" style="width: 100%;" type="submit">Register</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">Register <mat-icon *ngIf="isLoading"><mat-spinner [diameter]="20" color="primary"></mat-spinner></mat-icon></button>
     </mat-card-actions>
   </mat-card>
   <span style="flex-grow: 3;"></span>
