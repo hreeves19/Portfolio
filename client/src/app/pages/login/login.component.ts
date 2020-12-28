@@ -4,6 +4,7 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 import { take } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthenticateService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,14 +40,7 @@ export class LoginComponent implements OnInit {
       (result) => {
         console.log(result);
         this.isLoading = false;
-        this.userService.getProfile().pipe(take(1)).subscribe(
-          (res) => {
-            console.log(res);
-          },
-          (err) => {
-            console.log(err)
-          }
-        );
+        this.router.navigate(['']);
       },
       (error) => {
         console.log(error);

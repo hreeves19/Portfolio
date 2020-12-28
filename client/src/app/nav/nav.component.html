@@ -15,8 +15,10 @@
       <a mat-list-item href="#">Customers</a>
       <a mat-list-item href="#">Products</a>
       <a mat-list-item href="#">Offices</a>
-      <a mat-list-item routerLink="login">Login</a>
-      <a mat-list-item routerLink="signup">Signup</a>
+      <a mat-list-item routerLink="login" *ngIf="authService.isLoggedOut()">Login</a>
+      <a mat-list-item routerLink="signup" *ngIf="authService.isLoggedOut()">Signup</a>
+      <a mat-list-item routerLink="" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>
+      <a mat-list-item (click)="testProtectedRoute()">Test Protected Route</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -22,6 +22,7 @@ import { LoginModule } from './pages/login/login.module';
 import { SignupModule } from './pages/signup/signup.module';
 import { AuthenticateService } from './services/authenticate.service';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,11 +48,20 @@ import { AuthenticationInterceptor } from './interceptors/authentication.interce
     LoginModule,
     SignupModule
   ],
-  providers: [GeneralService, AuthenticateService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthenticationInterceptor,
-    multi: true
-  }],
+  providers: [
+    GeneralService,
+    AuthenticateService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
