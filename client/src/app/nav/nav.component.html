@@ -2,12 +2,13 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+      [opened]="(isHandset$ | async) === false"
+      >
     <mat-toolbar color="primary">
       <span>Menu</span>
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Dash Board</a>
+      <a mat-list-item routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Dash Board</a>
       <a mat-list-item href="#">Sales</a>
       <a mat-list-item href="#">Reports</a>
       <a mat-list-item href="#">Timesheets</a>
@@ -15,10 +16,10 @@
       <a mat-list-item href="#">Customers</a>
       <a mat-list-item href="#">Products</a>
       <a mat-list-item href="#">Offices</a>
-      <a mat-list-item routerLink="login" *ngIf="authService.isLoggedOut()">Login</a>
-      <a mat-list-item routerLink="signup" *ngIf="authService.isLoggedOut()">Signup</a>
-      <a mat-list-item routerLink="" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>
       <a mat-list-item (click)="testProtectedRoute()">Test Protected Route</a>
+      <a mat-list-item routerLink="login" *ngIf="authService.isLoggedOut()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Login</a>
+      <a mat-list-item routerLink="signup" *ngIf="authService.isLoggedOut()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Signup</a>
+      <a mat-list-item routerLink="" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -34,11 +35,11 @@
       <div style="display: flex; align-items: center; width: 100%;">
         <span>Courtland Reeves</span>
         <span style="flex-grow: 1;"></span>
-        <button mat-icon-button (click)="toggleColors.emit(null)">
+        <!-- <button mat-icon-button (click)="toggleColors.emit(null)">
           <mat-icon class="material-icons" style="cursor: pointer;">
             invert_colors
           </mat-icon>
-        </button>
+        </button> -->
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->

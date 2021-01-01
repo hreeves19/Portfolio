@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm = new FormGroup({
+    firstname: new FormControl('Henry', [Validators.required]),
+    lastname: new FormControl('Reeves', [Validators.required]),
     email: new FormControl(`hreeves${moment().format('x')}@gmail.com`, [Validators.required, RxwebValidators.email()]),
     password: new FormControl('xInSaN3xSk1llzx#!', [Validators.required, passwordStrengthValidator]),
     retypePassword: new FormControl('xInSaN3xSk1llzx#!', [Validators.required, RxwebValidators.compare({fieldName: 'password'})])
