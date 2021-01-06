@@ -18,12 +18,14 @@ app.set('json spaces', 2);
 const authRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 const productRouter = require('./routes/product');
+const stripeRouter = require('./routes/stripe');
 // const plaidRouter = require('./routes/plaid');
 
 // Other routes
 app.use('/api/auth', authRouter);
 app.use('/api/user', passport.authenticate('jwt', {session: false}), userRouter);
 app.use('/api/product', productRouter);
+app.use('/api/stripe', passport.authenticate('jwt', {session: false}), stripeRouter);
 // app.use('/api/finance', passport.authenticate('jwt', {session: false}), plaidRouter);
 
 const port = process.env.API_PORT || 3000;

@@ -19,6 +19,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  customer_id: {
+    type: String,
+    default: null
   }
 });
 
