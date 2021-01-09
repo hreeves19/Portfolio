@@ -1,24 +1,18 @@
 version: '3.4'
 
 services:
-  mongo-db:
-    image: mongo
-    ports:
-      - '27017:27017'
   server:
     build: .
     volumes:
       - ./:/app
     ports:
       - 3000:3000
-    links:
-      - mongo-db
-    container_name: portfolio-server
+    container_name: ecommerce-server
   client:
     build: client
     volumes:
       - ./client:/usr/src/app
     ports:
       - 4200:4200
-    container_name: portfolio-client
+    container_name: ecommerce-client
 
