@@ -23,6 +23,7 @@ import { SignupModule } from './pages/signup/signup.module';
 import { AuthenticateService } from './services/authenticate.service';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ProductsModule } from './pages/products/products.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     MatMenuModule,
     HomeModule,
     LoginModule,
-    SignupModule
+    SignupModule,
+    ProductsModule
   ],
   providers: [
     GeneralService,
