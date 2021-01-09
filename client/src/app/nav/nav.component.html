@@ -9,14 +9,7 @@
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Dash Board</a>
-      <a mat-list-item href="#">Sales</a>
-      <a mat-list-item href="#">Reports</a>
-      <a mat-list-item href="#">Timesheets</a>
-      <a mat-list-item href="#">Orders</a>
-      <a mat-list-item href="#">Customers</a>
       <a mat-list-item href="products">Products</a>
-      <a mat-list-item href="#">Offices</a>
-      <a mat-list-item (click)="testProtectedRoute()">Test Protected Route</a>
       <a mat-list-item routerLink="login" *ngIf="authService.isLoggedOut()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Login</a>
       <a mat-list-item routerLink="signup" *ngIf="authService.isLoggedOut()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Signup</a>
       <a mat-list-item routerLink="" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>

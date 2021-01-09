@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  customer_id: {
+  stripe_customer_id: {
     type: String,
     default: null
   }
