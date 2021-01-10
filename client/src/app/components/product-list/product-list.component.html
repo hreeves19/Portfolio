@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; justify-content: space-evenly;">
-  <mat-card style="margin: 1em;" *ngFor="let product of products">
+  <mat-card style="margin: 1em;" *ngFor="let product of products; let i = index">
     <mat-card-content style="display: flex; justify-content: center; flex-direction: column;">
       <div style="height: 300px; width: 300px; background-color: gray; border-radius: 0.5em; display: flex; justify-content: center; align-items: center;">
         <h1 style="color: white; text-align: center;">Image</h1>
@@ -7,13 +7,13 @@
       <p class="mat-subheading-2" style="margin: 0px;">{{product.name}}</p>
       <div style="display: flex; flex-direction: wrap; flex-wrap: nowrap; justify-content: space-between; width: 100%; align-items: center;">
         <div>
-          <mat-icon *ngFor="let i of starAmount">star</mat-icon>
+          <mat-icon *ngFor="let i of starAmount" style="color: orange;">star</mat-icon>
         </div>
         <p class="mat-body-2" style="margin: 0px;">{{product.price}}</p>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="primary" style="width: 100%;">Add To Cart <mat-icon>shopping_cart</mat-icon></button>
+      <button mat-flat-button color="primary" style="width: 100%; transition: 0.5s;">Add To Cart <mat-icon>shopping_cart</mat-icon></button>
     </mat-card-actions>
   </mat-card>
 </div>

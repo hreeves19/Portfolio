@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import './themes/charcoal-theme.scss';
+// @import './themes/charcoal-theme.scss';
+@import './themes/ecommerce-theme.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -17,4 +18,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   justify-content: center;
   // background-color: dodgerblue;
+}
+
+// $white: white;
+
+.mat-flat-button {
+  transition: ease;
+  border: 2px solid map-get($mat-primary, $key: main) !important;
+}
+
+.mat-flat-button:hover {
+  color: map-get($mat-primary, $key: main);
+  background-color: white;
+}
+
+.active-link {
+  // background-color: #1b4353;
+  color: map-get($mat-primary, $key: main) !important;
 }

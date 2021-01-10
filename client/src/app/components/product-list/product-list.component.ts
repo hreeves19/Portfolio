@@ -10,11 +10,16 @@ import { take } from 'rxjs/operators';
 export class ProductListComponent implements OnInit {
   @Input() products: Array<any> = [];
   starAmount: Array<number> = new Array(5).fill(0);
+  conditions: Array<boolean> = new Array();
   constructor(
     public productService: ProductService
   ) { }
 
   ngOnInit(): void {
+    this.conditions = new Array(this.products.length).fill(true);
+    // setTimeout(() => {
+    //   this.condition = !this.condition;
+    // }, 3000);
   }
 
 }
